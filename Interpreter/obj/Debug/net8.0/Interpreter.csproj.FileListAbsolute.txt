@@ -1,0 +1,11 @@
+C:\Users\Barbaro\Documents\CC\Pro\Proyectos de la escuela\Proyecto (GWENT)\Gwent Interpreter\Gwent Interpreter\Interpreter\bin\Debug\net8.0\Interpreter.deps.json
+C:\Users\Barbaro\Documents\CC\Pro\Proyectos de la escuela\Proyecto (GWENT)\Gwent Interpreter\Gwent Interpreter\Interpreter\bin\Debug\net8.0\Interpreter.dll
+C:\Users\Barbaro\Documents\CC\Pro\Proyectos de la escuela\Proyecto (GWENT)\Gwent Interpreter\Gwent Interpreter\Interpreter\bin\Debug\net8.0\Interpreter.pdb
+C:\Users\Barbaro\Documents\CC\Pro\Proyectos de la escuela\Proyecto (GWENT)\Gwent Interpreter\Gwent Interpreter\Interpreter\obj\Debug\net8.0\Interpreter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Barbaro\Documents\CC\Pro\Proyectos de la escuela\Proyecto (GWENT)\Gwent Interpreter\Gwent Interpreter\Interpreter\obj\Debug\net8.0\Interpreter.AssemblyInfoInputs.cache
+C:\Users\Barbaro\Documents\CC\Pro\Proyectos de la escuela\Proyecto (GWENT)\Gwent Interpreter\Gwent Interpreter\Interpreter\obj\Debug\net8.0\Interpreter.AssemblyInfo.cs
+C:\Users\Barbaro\Documents\CC\Pro\Proyectos de la escuela\Proyecto (GWENT)\Gwent Interpreter\Gwent Interpreter\Interpreter\obj\Debug\net8.0\Interpreter.csproj.CoreCompileInputs.cache
+C:\Users\Barbaro\Documents\CC\Pro\Proyectos de la escuela\Proyecto (GWENT)\Gwent Interpreter\Gwent Interpreter\Interpreter\obj\Debug\net8.0\Interpreter.dll
+C:\Users\Barbaro\Documents\CC\Pro\Proyectos de la escuela\Proyecto (GWENT)\Gwent Interpreter\Gwent Interpreter\Interpreter\obj\Debug\net8.0\refint\Interpreter.dll
+C:\Users\Barbaro\Documents\CC\Pro\Proyectos de la escuela\Proyecto (GWENT)\Gwent Interpreter\Gwent Interpreter\Interpreter\obj\Debug\net8.0\Interpreter.pdb
+C:\Users\Barbaro\Documents\CC\Pro\Proyectos de la escuela\Proyecto (GWENT)\Gwent Interpreter\Gwent Interpreter\Interpreter\obj\Debug\net8.0\ref\Interpreter.dll
