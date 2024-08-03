@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Barbaro\\Documents\\CC\\Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\Interpreter.csproj",
+      "projectUniqueName": "C:\\Users\\Barbaro\\Documents\\CC\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\Interpreter.csproj",
       "projectName": "Interpreter",
-      "projectPath": "C:\\Users\\Barbaro\\Documents\\CC\\Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\Interpreter.csproj",
+      "projectPath": "C:\\Users\\Barbaro\\Documents\\CC\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\Interpreter.csproj",
       "packagesPath": "C:\\Users\\Barbaro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Barbaro\\Documents\\CC\\Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\obj\\",
+      "outputPath": "C:\\Users\\Barbaro\\Documents\\CC\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Barbaro\\AppData\\Roaming\\NuGet\\NuGet.Config"

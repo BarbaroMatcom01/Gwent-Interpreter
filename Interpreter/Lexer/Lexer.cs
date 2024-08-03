@@ -1,80 +1,82 @@
-﻿namespace Interpreter;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 
-using System;
-
-public class Lexer
+namespace Interpreter
 {
-    private static readonly List<Token> listTokens = new List<Token>();
-    public static List<Token> LexicalAnalysis(string input)
+    public class Lexer
     {
-        string[] linesOfInput = input.Split('\n');
+        private static readonly List<Token> listTokens = new List<Token>();
 
-        LexerError lexerErrorInstance = new LexerError();
-        
-        if (lexerErrorInstance.LexerErrors == null)
+        public static List<Token> LexicalAnalysis(string input)
         {
-            lexerErrorInstance.LexerErrors = new List<Error>();
-        }
+            string[] linesOfInput = input.Split('\n');
+            LexerError lexerErrorInstance = new LexerError();
 
-        for (int i = 0; i < linesOfInput.Length; i++)
-        {
-            bool lastline = false;
-
-            if (linesOfInput[i] == linesOfInput[linesOfInput.Count() - 1])
-                lastline = true;
-            LexicalAnalysis(linesOfInput[i], i + 1, lastline, lexerErrorInstance);
-        }
-
-        if (lexerErrorInstance.LexerErrors.Any())
-        {
-            Console.WriteLine("Errors were found during lexical analysis:");
-            foreach (var error in lexerErrorInstance.LexerErrors)
+            if (lexerErrorInstance.LexerErrors == null)
             {
-                Console.WriteLine($"Line {error.Line}, Column {error.Column}: {error.Value} {error.Messege}");
-            }
-            return new List<Token>();
-        }
-
-        return listTokens;
-    }
-    public static void LexicalAnalysis(string input, int line, bool lastline, LexerError lexerErrorInstance)
-    {
-        int column = 0;
-        while (column < input.Length)
-        {
-            bool matched = false;
-            if (input[column] == ' ' || input[column] == '\t' || input[column] == '\v' || input[column] == '\f' || input[column] == 'r')
-            {
-                column++;
-                continue;
-            }
-            if (input[column] == '/' && column + 1 < input.Length)
-            {
-                if (input[column + 1] == '/') return;
+                lexerErrorInstance.LexerErrors = new List<Error>();
             }
 
-            foreach (var token in Token.TokenStringDictionary)
+            for (int i = 0; i < linesOfInput.Length; i++)
             {
-                var match = token.Value.Match(input.Substring(column));
-                if (match.Success)
+                bool lastline = (i == linesOfInput.Length - 1);
+                LexicalAnalysis(linesOfInput[i], i + 1, lastline, lexerErrorInstance);
+            }
+
+            if (lexerErrorInstance.LexerErrors.Any())
+            {
+                Console.WriteLine("Errors were found during lexical analysis:");
+                foreach (var error in lexerErrorInstance.LexerErrors)
                 {
-                    listTokens.Add(new Token(token.Key, match.Groups[0].Value, line, column + 1));
-                    column += match.Length;
-                    matched = true;
-                    break;
+                    Console.WriteLine($"Line {error.Line}, Column {error.Column}: {error.Value} {error.Messege}");
+                }
+                return new List<Token>();
+            }
+
+            return listTokens;
+        }
+
+        public static void LexicalAnalysis(string input, int line, bool lastline, LexerError lexerErrorInstance)
+        {
+            int column = 0;
+            while (column < input.Length)
+            {
+                bool matched = false;
+                if (char.IsWhiteSpace(input[column]))
+                {
+                    column++;
+                    continue;
+                }
+                if (input[column] == '/' && column + 1 < input.Length && input[column + 1] == '/')
+                {
+                    return;
+                }
+
+                foreach (var token in Token.TokenStringDictionary)
+                {
+                    var match = token.Value.Match(input.Substring(column));
+                    if (match.Success)
+                    {
+                        listTokens.Add(new Token(token.Key, match.Groups[0].Value, line, column + 1));
+                        column += match.Length;
+                        matched = true;
+                        break;
+                    }
+                }
+
+                if (!matched)
+                {
+                    lexerErrorInstance.LexerErrors.Add(new Error(input[column].ToString(), line, column, "Unsupported token"));
+                    column++;
                 }
             }
 
-            if (!matched)
+            if (lastline && column == input.Length)
             {
-                lexerErrorInstance.LexerErrors.Add(new Error(input[column].ToString(), line, column, "Unsupported token"));
-                column++;
+                listTokens.Add(new Token(TokenType.EOF, "", line, column + 1));
             }
-        }
-
-        if (lastline && column == input.Length)
-        {
-            listTokens.Add(new Token(TokenType.EndOfInput, "", line, column + 1));
         }
     }
 }

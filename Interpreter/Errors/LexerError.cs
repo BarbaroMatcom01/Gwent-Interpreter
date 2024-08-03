@@ -1,5 +1,9 @@
-namespace Interpreter;
-public class LexerError
+using System.Collections.Generic;
+
+namespace Interpreter
 {
-    public List<Error> LexerErrors=new();
+    public class LexerError
+    {
+        public List<Error> LexerErrors = new();
+    }
 }
