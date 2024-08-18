@@ -59,6 +59,8 @@ namespace Interpreter
             {TokenType.While,new Regex(@"^\bwhile\b")},
             {TokenType.Effect,new Regex(@"^\bEffect\b")},
             {TokenType.Card,new Regex(@"^\bCard\b")},
+            {TokenType.Print,new Regex(@"^\bprint\b")},
+            {TokenType.Var,new Regex(@"^\bvar\b")},
             {TokenType.Identifier, new Regex("^([a-zA-Z_]\\w*)")},
         };
     }
@@ -81,7 +83,7 @@ namespace Interpreter
         // Delimiter
         Comma, Dot, Semicolon, Left_Brace, Right_Brace, Left_Paren, Right_Paren, Left_Brackets, Right_Brackets,
         // Keyword
-        For, In, While, Effect, Card,
+        For, In, While, Effect, Card,Print,Var,
         // End
         EOF
     }

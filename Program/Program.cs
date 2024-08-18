@@ -7,22 +7,27 @@ namespace Interpreter
     {
         static void Main(string[] args)
         {
-            string input = Console.ReadLine();
-
-            List<Token> listTokens = new List<Token>();
-            listTokens = Lexer.LexicalAnalysis(input);
-            foreach (var token in listTokens)
+            try
             {
-                Console.WriteLine($"El token es {token.Type} {token.Value} {token.Line} {token.Column}");
+                Console.WriteLine("Ingrese el código a interpretar:");
+                string input = Console.ReadLine();
+
+                List<Token> listTokens = Lexer.LexicalAnalysis(input);
+                foreach (var token in listTokens)
+                {
+                    Console.WriteLine($"El token es {token.Type} {token.Value} {token.Line} {token.Column}");
+                }
+
+                Parser parser = new Parser(listTokens);
+                List<Stmt> statements = parser.Parse();
+
+                Interpreter interpreter = new Interpreter();
+                interpreter.Interpret(statements);
             }
-            Parser parser = new Parser(listTokens);
-            Expr expression = parser.Parse();
-
-            Interpreter interpreter = new Interpreter();
-            object result = interpreter.Evaluate(expression);
-
-            Console.WriteLine(result);
-   
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
         }
     }
 }

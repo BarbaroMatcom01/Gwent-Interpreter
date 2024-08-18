@@ -1,7 +1,87 @@
 namespace Interpreter
 {
-    public class Interpreter : IVisitor<object>
+    public class Interpreter : IVisitorExp<object>, IVisitorStmt<object>
     {
+
+        private Environment environment = new Environment();
+
+        public void Interpret(List<Stmt> statements)
+        {
+            try
+            {
+                foreach (Stmt statement in statements)
+                {
+                    Execute(statement);
+                }
+            }
+            catch (RuntimeError error)
+            {
+                ReportRuntimeError(error);
+            }
+        }
+
+        public object VisitVariableExpr(Variable expr)
+        {
+            return environment.Get(expr.Name);
+        }
+
+        public object VisitVarStmt(Var stmt)
+        {
+            object value = null;
+            if (stmt.Initializer != null)
+            {
+                value = Evaluate(stmt.Initializer);
+            }
+
+            environment.Define(stmt.Name.Value, value);
+            return null;
+        }
+
+        private object Evaluate(Expr expr)
+        {
+            return expr.Accept(this);
+        }
+
+        private void Execute(Stmt stmt)
+        {
+            stmt.Accept(this);
+        }
+        public object VisitExpressionStmt(Expression stmt)
+        {
+            Evaluate(stmt.ExpressionExpr);
+            return null;
+        }
+        public object VisitBlockStmt(Block stmt)
+        {
+            ExecuteBlock(stmt.Statements, new Environment(environment));
+            return null;
+        }
+
+        public object ExecuteBlock(List<Stmt> statements, Environment environment)
+        {
+            Environment previous = this.environment;
+            try
+            {
+                this.environment = environment;
+
+                foreach (Stmt statement in statements)
+                {
+                    Execute(statement);
+                }
+            }
+            finally
+            {
+                this.environment = previous;
+            }
+            return null;
+        }
+        public object VisitPrintStmt(Print stmt)
+        {
+            object value = Evaluate(stmt.ExpressionExpr);
+            Console.WriteLine(Stringify(value));
+            return null;
+        }
+
         public object VisitLiteralExpr(Literal expr)
         {
             return expr.Value;
@@ -89,11 +169,45 @@ namespace Interpreter
                     return null;
             }
         }
-        public object Evaluate(Expr expr)
+        public object VisitLogicalExpr(Logical expr)
         {
-            return expr.Accept(this);
-        }
+            object left = Evaluate(expr.Left);
 
+            if (expr.Operator.Type == TokenType.Or)
+            {
+                if (IsTruthy(left)) return true;
+            }
+            else if (expr.Operator.Type == TokenType.And)
+            {
+                if (!IsTruthy(left)) return false;
+            }
+
+            object right = Evaluate(expr.Right);
+
+            return IsTruthy(right);
+        }
+        public object VisitWhileStmt(While stmt)
+        {
+            while (IsTruthy(Evaluate(stmt.Condition)))
+            {
+                Execute(stmt.Body);
+            }
+
+            return null;
+        }
+        private bool IsTruthy(object value)
+        {
+            if (value == null) return false;
+            if (value is bool boolValue) return boolValue;
+
+            return true;
+        }
+        public object VisitAssignExpr(Assign expr)
+        {
+            object value = Evaluate(expr.Value);
+            environment.Assign(expr.Name, value);
+            return value;
+        }
         private void CheckNumberOperand(Token operatorToken, object right)
         {
             if (right is int || (right is string rightStr && int.TryParse(rightStr, out _))) return;
@@ -127,6 +241,26 @@ namespace Interpreter
             if (a == null && b == null) return true;
             if (a == null) return false;
             return a.Equals(b);
+        }
+        private string Stringify(object obj)
+        {
+            if (obj == null) return "nil";
+
+            if (obj is double doubleVal)
+            {
+                string text = doubleVal.ToString();
+                if (text.EndsWith(".0"))
+                {
+                    text = text.Substring(0, text.Length - 2);
+                }
+                return text;
+            }
+
+            return obj.ToString();
+        }
+        private void ReportRuntimeError(RuntimeError error)
+        {
+            Console.WriteLine($"[line {error.Token.Line}] Error: {error.Message}");
         }
     }
 
