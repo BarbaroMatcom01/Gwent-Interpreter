@@ -5,11 +5,11 @@ namespace Interpreter
         public abstract T Accept<T>(IVisitorStmt<T> visitor);
     }
 
-    public class Expression : Stmt
+    public class ExpressionStmt : Stmt
     {
-        public readonly Expr ExpressionExpr;
+        public Expr ExpressionExpr;
 
-        public Expression(Expr expression)
+        public ExpressionStmt(Expr expression)
         {
             this.ExpressionExpr = expression;
         }
@@ -18,9 +18,10 @@ namespace Interpreter
             return visitor.VisitExpressionStmt(this);
         }
     }
+   
     public class Print : Stmt
     {
-        public readonly Expr ExpressionExpr;
+        public  Expr ExpressionExpr;
 
         public Print(Expr expression)
         {
@@ -31,6 +32,7 @@ namespace Interpreter
             return visitor.VisitPrintStmt(this);
         }
     }
+   
     public class Var : Stmt
     {
         public Token Name { get; }
@@ -47,10 +49,11 @@ namespace Interpreter
             return visitor.VisitVarStmt(this);
         }
     }
+   
     public class While : Stmt
     {
-        public readonly Expr Condition;
-        public readonly Stmt Body;
+        public Expr Condition;
+        public Stmt Body;
 
         public While(Expr condition, Stmt body)
         {
@@ -63,16 +66,34 @@ namespace Interpreter
             return visitor.VisitWhileStmt(this);
         }
     }
+   
+    public class For : Stmt
+    {
+        public Token Variable { get; }
+        public Expr Collection { get; }
+        public Stmt Body { get; }
+        public For(Token variable, Expr collection, Stmt body)
+        {
+            Variable = variable;
+            Collection = collection;
+            Body = body;
+        }
+        public override T Accept<T>(IVisitorStmt<T> visitor)
+        {
+            return visitor.VisitForStmt(this);
+        }
+    }
+   
     public class Block : Stmt
     {
-        public readonly List<Stmt> Statements;
+        public List<Stmt> Statements;
 
+        public Environment environment { get; set; }
         public Block(List<Stmt> statements)
         {
             this.Statements = statements;
         }
-
-        public override R Accept<R>(IVisitorStmt<R> visitor)
+        public override T Accept<T>(IVisitorStmt<T> visitor)
         {
             return visitor.VisitBlockStmt(this);
         }

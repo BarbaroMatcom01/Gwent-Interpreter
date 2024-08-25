@@ -1,4 +1,3 @@
-using System.Linq.Expressions;
 namespace Interpreter
 {
     public interface IVisitorExp<T>
@@ -10,14 +9,15 @@ namespace Interpreter
         T VisitUnaryExpr(Unary expr);
         T VisitBinaryExpr(Binary expr);
         T VisitGroupingExpr(Grouping expr);
-    }
 
-    public interface IVisitorStmt<T>
-    {
-        T VisitExpressionStmt(Expression stmt);
-        T VisitPrintStmt(Print stmt);
-        T VisitVarStmt(Var stmt);
-        T VisitWhileStmt(While stmt);
-        T VisitBlockStmt(Block stmt);
+        T VisitFunctionCall(FunctionCall expr);
+        T VisitPropertyGetter(PropertyGetter expr);
+        T VisitPropertySetter(PropertySetter expr);
+
+        T VisitOnActivationExpr(OnActivationExpr expr);
+        T VisitEffectInfoExpr(EffectInfoExpr expr);
+        T VisitSelectorExpr(SelectorExpr expr);
+        T VisitDelegateExpr(DelegateExpr expr);
+
     }
 }

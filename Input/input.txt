@@ -1,0 +1,39 @@
+
+effect {
+    Name: "Damage",
+    Params: {
+      Amount: Number 
+        },
+Action:(targets,context) =>
+{
+   for(target in targets)
+{
+print target;
+}
+}
+}
+
+
+card {
+    Type: "Oro",
+    Name: "Beluga",
+    Faction: "Northern Realms",
+    Power: 10,
+    Range: "Melee" , 
+    
+OnActivation: [
+        { 
+          Effect : {
+              name: "Damage",
+              Amount: 1,
+          },
+           Selector: {
+               Source: "board" , 
+               Single: false ,
+               Predicate: (unit) => unit.faction == "Northern" @@ " Realms"
+            }
+ }
+]
+
+}
+

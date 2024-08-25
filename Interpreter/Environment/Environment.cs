@@ -1,11 +1,8 @@
-using System.Collections.Generic;
-
 namespace Interpreter
 {
     public class Environment
     {
         private readonly Environment enclosing;
-
         private readonly Dictionary<string, object> values = new Dictionary<string, object>();
 
         public Environment()
@@ -20,7 +17,7 @@ namespace Interpreter
 
         public void Define(string name, object value)
         {
-            values[name] = value;
+            values.Add(name,value);
         }
 
         public object Get(Token name)
@@ -48,7 +45,6 @@ namespace Interpreter
                 enclosing.Assign(name, value);
                 return;
             }
-
             throw new RuntimeError(name, $"Undefined variable '{name.Value}'.");
         }
     }

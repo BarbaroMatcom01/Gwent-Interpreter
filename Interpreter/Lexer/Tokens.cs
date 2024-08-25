@@ -26,6 +26,7 @@ namespace Interpreter
             {TokenType.True, new Regex(@"^true")},
             {TokenType.False, new Regex(@"^false")},
             {TokenType.Null, new Regex(@"^null")},
+            {TokenType.Lambda, new Regex(@"^=>")},
             {TokenType.Plus_Plus,new Regex(@"^\+\+")},
             {TokenType.Plus,new Regex(@"^\+")},
             {TokenType.Minus_Minus,new Regex(@"^--")},
@@ -57,10 +58,18 @@ namespace Interpreter
             {TokenType.For,new Regex(@"^\bfor\b")},
             {TokenType.In,new Regex(@"^\bin\b")},
             {TokenType.While,new Regex(@"^\bwhile\b")},
-            {TokenType.Effect,new Regex(@"^\bEffect\b")},
-            {TokenType.Card,new Regex(@"^\bCard\b")},
             {TokenType.Print,new Regex(@"^\bprint\b")},
             {TokenType.Var,new Regex(@"^\bvar\b")},
+            {TokenType.Effect,new Regex(@"^\beffect\b")},
+            {TokenType.Card,new Regex(@"^\bcard\b")},
+            {TokenType.Type,new Regex(@"^\bType\b")},
+            {TokenType.Name,new Regex(@"^\bName\b")},
+            {TokenType.Faction,new Regex(@"^\bFaction\b")},
+            {TokenType.Power,new Regex(@"^\bPower\b")},
+            {TokenType.Range,new Regex(@"^\bRange\b")},
+            {TokenType.OnActivation,new Regex(@"^\bOnActivation\b")},
+            {TokenType.Action,new Regex(@"^\bAction\b")},
+            {TokenType.Params,new Regex(@"^\bParams\b")},
             {TokenType.Identifier, new Regex("^([a-zA-Z_]\\w*)")},
         };
     }
@@ -83,7 +92,7 @@ namespace Interpreter
         // Delimiter
         Comma, Dot, Semicolon, Left_Brace, Right_Brace, Left_Paren, Right_Paren, Left_Brackets, Right_Brackets,
         // Keyword
-        For, In, While, Effect, Card,Print,Var,
+        For, In, While, Effect, Card,Print,Var,Name, Type, Faction, Power, Range, OnActivation,Params,Lambda,Action,
         // End
         EOF
     }

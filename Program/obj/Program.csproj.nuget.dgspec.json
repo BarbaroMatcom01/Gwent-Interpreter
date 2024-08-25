@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Program\\Program.csproj": {}
+    "c:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Program\\Program.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\Interpreter.csproj": {
+    "c:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\Interpreter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\Interpreter.csproj",
+        "projectUniqueName": "c:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\Interpreter.csproj",
         "projectName": "Interpreter",
-        "projectPath": "C:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\Interpreter.csproj",
+        "projectPath": "c:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\Interpreter.csproj",
         "packagesPath": "C:\\Users\\Barbaro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\obj\\",
+        "outputPath": "c:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Barbaro\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -62,14 +62,14 @@
         }
       }
     },
-    "C:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Program\\Program.csproj": {
+    "c:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Program\\Program.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Program\\Program.csproj",
+        "projectUniqueName": "c:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Program\\Program.csproj",
         "projectName": "Program",
-        "projectPath": "C:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Program\\Program.csproj",
+        "projectPath": "c:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Program\\Program.csproj",
         "packagesPath": "C:\\Users\\Barbaro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Program\\obj\\",
+        "outputPath": "c:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Program\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Barbaro\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -84,8 +84,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\Interpreter.csproj": {
-                "projectPath": "C:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\Interpreter.csproj"
+              "c:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\Interpreter.csproj": {
+                "projectPath": "c:\\Users\\Barbaro\\Documents\\Personal\\Estudio\\Pro\\Proyectos Pro\\Proyectos de la escuela\\Proyecto (GWENT)\\Gwent Interpreter\\Gwent Interpreter\\Interpreter\\Interpreter.csproj"
               }
             }
           }

@@ -21,12 +21,11 @@ namespace Interpreter
             return visitor.VisitAssignExpr(this);
         }
     }
-
     public class Logical : Expr
     {
-        public  Expr Left{ get; }
-        public  Token Operator{ get; }
-        public  Expr Right{ get; }
+        public Expr Left { get; }
+        public Token Operator { get; }
+        public Expr Right { get; }
 
         public Logical(Expr left, Token op, Expr right)
         {
@@ -40,7 +39,7 @@ namespace Interpreter
             return visitor.VisitLogicalExpr(this);
         }
     }
-    
+
     public class Binary : Expr
     {
         public Binary(Expr left, Token op, Expr right)
@@ -59,7 +58,6 @@ namespace Interpreter
             return visitor.VisitBinaryExpr(this);
         }
     }
-
     public class Grouping : Expr
     {
         public Grouping(Expr expression)
